@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Days Left in 2025</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(120deg, #89f7fe, #66a6ff);
+      color: #fff;
+      text-align: center;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(8px);
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 2em;
+      margin: 10px 0;
+    }
+    .slogan {
+      font-size: 1.5em;
+      color: #ffd700;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>No. of Days Left in 2025</h1>
+    <p id="days-left"></p>
+    <p class="slogan" id="daily-slogan"></p>
+  </div>
+
+  <script>
+    // Calculate and display days left in 2025
+    function calculateDaysLeft() {
+      const currentDate = new Date();
+      const endOfYear = new Date(2025, 11, 31); // December 31, 2025
+      const msPerDay = 1000 * 60 * 60 * 24;
+      const daysLeft = Math.ceil((endOfYear - currentDate) / msPerDay);
+      document.getElementById('days-left').textContent = `${daysLeft} days`;
+    }
+
+    // Array of motivational slogans
+    const slogans = [
+      "Keep pushing forward!",
+      "Believe in yourself!",
+      "Every step counts.",
+      "Success is a journey, not a destination.",
+      "Hard work beats talent when talent doesn't work hard.",
+      "Today is another chance to get closer to your goals.",
+      "Never give up, great things take time.",
+      "You are capable of amazing things!",
+      "Stay positive, work hard, and make it happen.",
+      "Your future is created by what you do today."
+    ];
+
+    // Display a new slogan based on the day
+    function displaySlogan() {
+      const today = new Date();
+      const sloganIndex = today.getDate() % slogans.length; // Use the day of the month to select a slogan
+      document.getElementById('daily-slogan').textContent = slogans[sloganIndex];
+    }
+
+    // Initialize
+    calculateDaysLeft();
+    displaySlogan();
+  </script>
+</body>
+</html>
